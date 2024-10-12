@@ -1,0 +1,17 @@
+type Query{
+   #endpoint /ping will return type of String
+   ping: String,
+   products: [Product]
+}
+
+type Product {
+   id: ID!
+   name: String!
+   price: Float!
+   category: Category
+}
+
+type Category {
+   id: ID!
+   name: String!
+}
