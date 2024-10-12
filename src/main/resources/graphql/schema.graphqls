@@ -1,17 +1,37 @@
-type Query{
-   #endpoint /ping will return type of String
-   ping: String,
-   products: [Product]
+type Product {
+    productId: ID!
+    productName: String!
+    productPrice: Float!
+    categoryId: ID!
 }
 
-type Product {
-   id: ID!
-   name: String!
-   price: Float!
-   category: Category
+input ProductRequest {
+    productName: String!
+    productPrice: Float!
+    categoryId: ID!
 }
+
+type  ProductResponse {
+    productId: ID!
+    productName: String!
+    productPrice: Float!
+    category: Category
+}
+
 
 type Category {
-   id: ID!
-   name: String!
+    categoryId: ID!
+    categoryName: String!
 }
+
+type Query{
+    #endpoint /ping will return type of String
+    ping: String,
+    dummyProducts: [Product]
+    getProductByProductId(id: ID!): Product
+}
+
+type Mutation{
+    createProduct(input: ProductRequest !): ProductResponse!
+}
+

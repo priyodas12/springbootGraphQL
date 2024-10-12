@@ -1,0 +1,13 @@
+{
+    dummyProducts {
+        __typename
+        productId
+        productName
+        productPrice
+        productCategory {
+            categoryId
+            categoryName
+        }
+    }
+}
+
